@@ -21,21 +21,31 @@ using namespace std;
 
 double operation (char op, double a, double b) 						//Check which operation and return its result.
 {
-	if (op == '*')
-		return a*b;
-	if (op == '/')
+	double resp = 0;
+	switch (op)
 	{
-		if(b==0) 
+	case '*':
+		resp = a*b;
+		break;
+	case '/':
+		if (b == 0)
 		{
-			cout<< "  Oh God! You've just divided by zero, didn't you?"<<endl;
+			cout << "  Oh God! You've just divided by zero, didn't you?" << endl;
 			return 0;
 		}
-		return a/b;
+		resp =a / b;
+		break;
+	case '+':
+		resp = a+b;
+		break;
+	case '-':
+		resp = a - b;
+		break;
+		default:
+		break;
 	}
-	if (op == '+')
-		return a+b;
-	if (op == '-')
-		return a-b;
+	return resp;
+
 }
 
 string operate(string input)
